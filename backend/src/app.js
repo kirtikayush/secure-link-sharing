@@ -7,17 +7,14 @@ const shareRoutes = require("./routes/share.routes");
 
 const app = express();
 
-// 🔴 CORS FIRST
+// ✅ CORS FIRST
 app.use(
   cors({
-    origin: "*", // TEMP: allow all (we’ll tighten later)
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-// 🔴 Explicit OPTIONS handler
-app.options("*", cors());
 
 app.use(express.json());
 
