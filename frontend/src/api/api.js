@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5050",
+  baseURL: "https://secure-link-sharing-production-7975.up.railway.app",
 });
 
 api.interceptors.request.use((config) => {

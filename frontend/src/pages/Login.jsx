@@ -16,7 +16,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-      navigate("/");
+      navigate("/dashboard"); // ✅ FIX
     } catch {
       setError("Invalid credentials");
     }
@@ -26,14 +26,21 @@ export default function Login() {
     <form onSubmit={submit}>
       <h2>Login</h2>
 
-      <input value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
       <input
         type="password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
 
       <button type="submit">Login</button>
+
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <p>
